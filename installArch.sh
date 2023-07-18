@@ -1,10 +1,10 @@
 #!/bin/sh
 
 # Configuração
-DEVICE=/dev/nvme0n1
-PRE=p
-HOSTNAME=lenovinho
-MICROCODE=amd-ucode
+export DEVICE=/dev/nvme0n1
+export PRE=p
+export HOSTNAME=lenovinho
+export MICROCODE=amd-ucode
 
 # Ativa sincronização do relógio
 echo -e "\033[1;36m Ativa sincronização do relógio \033[m"
@@ -56,5 +56,6 @@ arch-chroot /mnt ./chroot.sh
 
 # Termina a instalação e desliga o computador
 echo -e "\033[1;36m Termina a instalação e desliga o computador \033[m"
+rm /mnt/chroot.sh
 umount -R /mnt
 shutdown now
