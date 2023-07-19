@@ -6,7 +6,7 @@ export GPU_TYPE=radeon
 export USERNAME=joni
 
 # Ativa o repositório multilib
-sed -i '/\[multilib\]/,+1 s/^#//' pacman.conf
+sed -i '/\[multilib\]/,+1 s/^#//' /etc/pacman.conf
 
 # Atualiza sistema
 pacman -Syu --noconfirm
