@@ -73,3 +73,13 @@ pacman -S --noconfirm cups
 # Suporte para bluetooth
 pacman -S --noconfirm bluez bluez-utils
 
+
+
+# falta instalar yay
+
+# Falta configurar:
+# rofi
+# picom
+# wallpaper
+# temas
+# thunar
