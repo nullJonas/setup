@@ -9,9 +9,8 @@ export USERNAME=joni
 echo -e "\033[1;36m Ativa o repositório multilib \033[m"
 sed -i '/\[multilib\]/,+1 s/^#//' /etc/pacman.conf
 
-# Atualiza sistema e instala sudo
+# Atualiza sistema
 echo -e "\033[1;36m Atualiza sistema \033[m"
-pacman -Syu --noconfirm sudo
 
 # Cria um usuário normal com permissão de usar sudo
 echo -e "\033[1;36m Cria um usuário normal com permissão de usar sudo \033[m"
