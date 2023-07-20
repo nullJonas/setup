@@ -37,7 +37,7 @@ pacman -S --noconfirm xorg-server $VIDEO_DRIVER mesa i3-wm i3lock i3status\
 pacman -S --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji
 
 # Programas que eu uso
-pacman -S --noconfirm ark blender btop cmus discord firefox flameshot imv\
+pacman -S --noconfirm ark btop cmus discord firefox flameshot imv\
     kdeconnect keepassxc krita mpv obsidian simple-scan steam thunar\
     torbrowser-launcher yt-dlp
 
@@ -59,8 +59,8 @@ pacman -S --noconfirm bash-completion ffmpegthumbnailer gnome-keyring numlockx\
     smartmontools thunar-archive-plugin tumbler unzip wget zip
 
 # Suporte para jogos com o wine
-pacman -S --noconfirm lib32-mesa lib32-vulkan-"$GPU_TYPE" vulkan-"$GPU_TYPE" wine\
-    winetricks
+# pacman -S --noconfirm lib32-mesa lib32-vulkan-"$GPU_TYPE" vulkan-"$GPU_TYPE" wine\
+    # winetricks
 
 # Suporte para MTP
 pacman -S --noconfirm mtpfs gvfs-mtp
