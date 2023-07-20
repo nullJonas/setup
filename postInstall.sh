@@ -11,6 +11,7 @@ sed -i '/\[multilib\]/,+1 s/^#//' /etc/pacman.conf
 
 # Atualiza sistema
 echo -e "\033[1;36m Atualiza sistema \033[m"
+pacman -Syu --noconfirm
 
 # Cria um usuário normal com permissão de usar sudo
 echo -e "\033[1;36m Cria um usuário normal com permissão de usar sudo \033[m"
