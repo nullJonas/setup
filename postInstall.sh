@@ -99,10 +99,9 @@ cp config/.xinitrc /home/$USERNAME/
 
 # Instala pacotes da AUR que eu uso
 echo -e "\033[1;36m Instala pacotes da AUR que eu uso \033[m"
-echo y | LANG=C yay --noprovides --answerdiff None --answerclean None --mflags \
+su -c "LANG=C yay --noprovides --answerdiff None --answerclean None --mflags \
     "--noconfirm" -S epson-inkjet-printer-escpr minecraft-launcher \
-    mkinitcpio-numlock osu-lazer-bin visual-studio-code-bin
-yay -c
+    mkinitcpio-numlock osu-lazer-bin visual-studio-code-bin" $USERNAME
 # yay -Sc --clean epson-inkjet-printer-escpr minecraft-launcher \
 #     mkinitcpio-numlock osu-lazer-bin visual-studio-code-bin
 
