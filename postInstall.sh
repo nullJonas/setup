@@ -77,14 +77,14 @@ pacman -S --noconfirm bluez bluez-utils
 
 
 # Instala yay para poder baixar pacotes da AUR
-# FAZER ESSA PARTE SER EXECUTADA PELO USER NORMAL (SEM ROOT)
 echo -e "\033[1;36m Instala yay para poder baixar pacotes da AUR \033[m"
 cd /home/$USERNAME
-git clone https://aur.archlinux.org/yay.git
-cd yay
-su -c "makepkg -sic --noconfirm --needed" $USERNAME
-cd ..
-rm -rf yay
+su -c "
+git clone https://aur.archlinux.org/yay.git && \
+cd yay && \
+makepkg -sic --noconfirm --needed && \
+cd .. && \
+rm -rf yay" $USERNAME
 cd ~/setup
 
 # Copia arquivos de configuração
@@ -114,6 +114,7 @@ chown -R $USERNAME:$USERNAME /home/$USERNAME
 
 # Escolhe o thunar como gerenciador de arquivos padrão
 echo -e "\033[1;36m Escolhe o thunar como gerenciador de arquivos padrão \033[m"
+mkdir ~/.config
 xdg-mime default thunar.desktop inode/directory
 su -c "xdg-mime default thunar.desktop inode/directory" $USERNAME
 

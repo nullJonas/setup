@@ -56,7 +56,7 @@ arch-chroot /mnt ./chroot.sh
 
 # Termina a instalação e desliga o computador
 echo -e "\033[1;36m Termina a instalação e desliga o computador \033[m"
-cp -r . /mnt/root/
+cp -r . /mnt/root/setup
 rm /mnt/chroot.sh
 umount -R /mnt
 shutdown now
