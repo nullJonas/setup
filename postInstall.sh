@@ -34,12 +34,12 @@ pacman -S --noconfirm xorg-server $VIDEO_DRIVER mesa i3-wm i3lock i3status\
     xorg-xkill xorg-xrandr nitrogen alacritty
 
 # Fontes
-pacman -S --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji
+# pacman -S --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji
 
 # Programas que eu uso
-pacman -S --noconfirm ark btop cmus discord firefox flameshot imv\
-    kdeconnect keepassxc krita mpv obsidian simple-scan steam thunar\
-    torbrowser-launcher yt-dlp
+# pacman -S --noconfirm ark btop cmus discord firefox flameshot imv\
+#     kdeconnect keepassxc krita mpv obsidian simple-scan steam thunar\
+#     torbrowser-launcher yt-dlp
 
 # Som
 pacman -S --noconfirm pipewire-audio pipewire-pulse pipewire-alsa pavucontrol\
@@ -51,7 +51,7 @@ pacman -S --noconfirm tlp tlp-rdw
 pacman -S --noconfirm udiskie udisks2
 
 # Programação
-pacman -S --noconfirm gdb git python-pip julia nodejs npm
+# pacman -S --noconfirm gdb git python-pip julia nodejs npm
 
 # Pacotes aleatórios que são úteis
 pacman -S --noconfirm bash-completion ffmpegthumbnailer gnome-keyring numlockx\
@@ -72,7 +72,7 @@ pacman -S --noconfirm ntfs-3g
 pacman -S --noconfirm cups
 
 # Suporte para bluetooth
-pacman -S --noconfirm bluez bluez-utils
+# pacman -S --noconfirm bluez bluez-utils
 
 
 
