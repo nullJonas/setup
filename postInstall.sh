@@ -77,12 +77,15 @@ pacman -S --noconfirm bluez bluez-utils
 
 
 # Instala yay para poder baixar pacotes da AUR
+# FAZER ESSA PARTE SER EXECUTADA PELO USER NORMAL (SEM ROOT)
 echo -e "\033[1;36m Instala yay para poder baixar pacotes da AUR \033[m"
+cd /home/$USERNAME
 git clone https://aur.archlinux.org/yay.git
 cd yay
-makepkg -sic --noconfirm --needed
+su -c "makepkg -sic --noconfirm --needed" $USERNAME
 cd ..
 rm -rf yay
+cd ~/setup
 
 # Copia arquivos de configuração
 echo -e "\033[1;36m Copia arquivos de configuração \033[m"
