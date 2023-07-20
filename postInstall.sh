@@ -17,7 +17,7 @@ pacman -Syu --noconfirm
 echo -e "\033[1;36m Cria um usuário normal com permissão de usar sudo \033[m"
 useradd -m -G wheel,video $USERNAME
 sed -i "/root ALL=(ALL:ALL) ALL/a\
-$USERNAME ALL=(ALL:ALL) ALL" /etc/sudoers
+$USERNAME ALL=(ALL:ALL) NOPASSWD: ALL" /etc/sudoers
 echo "Escolha a senha do novo usuário"
 passwd $USERNAME
 
@@ -99,7 +99,7 @@ cp config/.xinitrc /home/$USERNAME/
 
 # Instala pacotes da AUR que eu uso
 echo -e "\033[1;36m Instala pacotes da AUR que eu uso \033[m"
-LANG=C yay --noprovides --answerdiff None --answerclean None --mflags \
+echo y | LANG=C yay --noprovides --answerdiff None --answerclean None --mflags \
     "--noconfirm" -S epson-inkjet-printer-escpr minecraft-launcher \
     mkinitcpio-numlock osu-lazer-bin visual-studio-code-bin
 yay -c
