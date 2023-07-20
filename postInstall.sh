@@ -50,12 +50,13 @@ pacman -S --noconfirm tlp tlp-rdw
 pacman -S --noconfirm udiskie udisks2
 
 # Programação
+pacman -S --noconfirm git
 # pacman -S --noconfirm gdb git python-pip julia nodejs npm
 
 # Pacotes aleatórios que são úteis
 pacman -S --noconfirm bash-completion ffmpegthumbnailer gnome-keyring numlockx\
     pacman-contrib imagemagick light lshw lxappearance man-db neofetch\
-    smartmontools thunar-archive-plugin tumbler unzip wget zip
+    smartmontools thunar-archive-plugin tumbler unzip wget xdg-utils zip
 
 # Suporte para jogos com o wine
 # pacman -S --noconfirm lib32-mesa lib32-vulkan-"$GPU_TYPE" vulkan-"$GPU_TYPE" wine\
