@@ -38,7 +38,7 @@ pacman -S --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji
 # Programas que eu uso
 pacman -S --noconfirm ark blender btop cmus discord firefox flameshot imv\
     kdeconnect keepassxc krita mpv obsidian simple-scan steam thunar\
-    torbrowser-launcher vim yt-dlp
+    torbrowser-launcher yt-dlp
 
 # Som
 pacman -S --noconfirm pipewire-audio pipewire-pulse pipewire-alsa pavucontrol\

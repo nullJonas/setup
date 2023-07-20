@@ -43,7 +43,7 @@ rankmirrors -n 6 /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist
 
 # Instala o kernel e pacotes básicos
 echo -e "\033[1;36m Instala o kernel e pacotes básicos \033[m"
-pacstrap /mnt base base-devel linux linux-firmware
+pacstrap /mnt base base-devel linux linux-firmware vim
 
 # Gera o arquivo fstab
 echo -e "\033[1;36m Gera o arquivo fstab \033[m"
