@@ -75,7 +75,7 @@ pacman -S --noconfirm cups
 # Suporte para bluetooth
 # pacman -S --noconfirm bluez bluez-utils
 
-
+exit
 
 # Instala yay para poder baixar pacotes da AUR
 echo -e "\033[1;36m Instala yay para poder baixar pacotes da AUR \033[m"
@@ -100,8 +100,11 @@ cp config/.xinitrc /home/$USERNAME/
 
 # Instala pacotes da AUR que eu uso
 echo -e "\033[1;36m Instala pacotes da AUR que eu uso \033[m"
-yay -Sc --clean epson-inkjet-printer-escpr minecraft-launcher \
+LANG=C yay --noprovides --answerdiff None --answerclean None --mflags \
+    "--noconfirm" -Sc --clean epson-inkjet-printer-escpr minecraft-launcher \
     mkinitcpio-numlock osu-lazer-bin visual-studio-code-bin
+# yay -Sc --clean epson-inkjet-printer-escpr minecraft-launcher \
+#     mkinitcpio-numlock osu-lazer-bin visual-studio-code-bin
 
 # Baixa e seta o wallpaper
 echo -e "\033[1;36m Baixa e seta o wallpaper \033[m"
