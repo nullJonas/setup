@@ -75,8 +75,6 @@ pacman -S --noconfirm cups
 # Suporte para bluetooth
 # pacman -S --noconfirm bluez bluez-utils
 
-exit
-
 # Instala yay para poder baixar pacotes da AUR
 echo -e "\033[1;36m Instala yay para poder baixar pacotes da AUR \033[m"
 pacman -S --noconfirm go
