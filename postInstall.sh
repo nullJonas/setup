@@ -6,15 +6,15 @@ export GPU_TYPE=radeon
 export USERNAME=joni
 
 # Ativa o repositório multilib
+echo -e "\033[1;36m Ativa o repositório multilib \033[m"
 sed -i '/\[multilib\]/,+1 s/^#//' /etc/pacman.conf
 
-# Atualiza sistema
-pacman -Syu --noconfirm
+# Atualiza sistema e instala sudo
+echo -e "\033[1;36m Atualiza sistema \033[m"
+pacman -Syu --noconfirm sudo
 
-# Instala sudo
-pacman -S --noconfirm sudo
-
-#Cria um usuário normal com permissão de usar sudo
+# Cria um usuário normal com permissão de usar sudo
+echo -e "\033[1;36m Cria um usuário normal com permissão de usar sudo \033[m"
 useradd -m -G wheel,video $USERNAME
 sed -i "/root ALL=(ALL:ALL) ALL/a\
 $USERNAME ALL=(ALL:ALL) ALL" /etc/sudoers
@@ -26,6 +26,7 @@ passwd $USERNAME
 # ======================================================================
 # ====================== INSTALANDO OS PACOTES =========================
 # ======================================================================
+echo -e "\033[1;36m INSTALANDO OS PACOTES... \033[m"
 
 # Ambiente gráfico (com i3wm)
 pacman -S --noconfirm xorg-server $VIDEO_DRIVER mesa i3-wm i3lock i3status\
@@ -76,6 +77,7 @@ pacman -S --noconfirm bluez bluez-utils
 
 
 # Instala yay para poder baixar pacotes da AUR
+echo -e "\033[1;36m Instala yay para poder baixar pacotes da AUR \033[m"
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -sic --noconfirm --needed
@@ -83,6 +85,7 @@ cd ..
 rm -rf yay
 
 # Copia arquivos de configuração
+echo -e "\033[1;36m Copia arquivos de configuração \033[m"
 mkdir /home/$USERNAME/.config
 cp config/picom.conf /etc/xdg/
 cp -r config/i3 /home/$USERNAME/.config/
@@ -92,22 +95,27 @@ cp config/.bashrc /home/$USERNAME/
 cp config/.xinitrc /home/$USERNAME/
 
 # Instala pacotes da AUR que eu uso
+echo -e "\033[1;36m Instala pacotes da AUR que eu uso \033[m"
 yay -Sc --clean epson-inkjet-printer-escpr minecraft-launcher \
     mkinitcpio-numlock osu-lazer-bin visual-studio-code-bin
 
 # Baixa e seta o wallpaper
+echo -e "\033[1;36m Baixa e seta o wallpaper \033[m"
 mkdir -p /home/$USERNAME/images/wallpapers
 wget https://wallpapercave.com/wp/wp4162242.png\
     -O /home/$USERNAME/images/wallpapers/celeste.png
 
 # Ajeita as permissões da home do usuário
+echo -e "\033[1;36m Ajeita as permissões da home do usuário \033[m"
 chown -R $USERNAME:$USERNAME /home/$USERNAME
 
 # Escolhe o thunar como gerenciador de arquivos padrão
+echo -e "\033[1;36m Escolhe o thunar como gerenciador de arquivos padrão \033[m"
 xdg-mime default thunar.desktop inode/directory
 su -c "xdg-mime default thunar.desktop inode/directory" $USERNAME
 
-# Faz a nivelação de desgaste no SSD semanalemente
+# Liga o timer para fazer a nivelação de desgaste no SSD semanalemente
+echo -e "\033[1;36m Liga o timer para fazer a nivelação de desgaste no SSD semanalemente \033[m"
 systemctl enable fstrim.timer
 
 # TODO:
