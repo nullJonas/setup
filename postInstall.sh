@@ -79,6 +79,7 @@ exit
 
 # Instala yay para poder baixar pacotes da AUR
 echo -e "\033[1;36m Instala yay para poder baixar pacotes da AUR \033[m"
+pacman -S --noconfirm go
 cd /home/$USERNAME
 su -c "
 git clone https://aur.archlinux.org/yay.git && \
@@ -101,8 +102,9 @@ cp config/.xinitrc /home/$USERNAME/
 # Instala pacotes da AUR que eu uso
 echo -e "\033[1;36m Instala pacotes da AUR que eu uso \033[m"
 LANG=C yay --noprovides --answerdiff None --answerclean None --mflags \
-    "--noconfirm" -Sc --clean epson-inkjet-printer-escpr minecraft-launcher \
+    "--noconfirm" -S epson-inkjet-printer-escpr minecraft-launcher \
     mkinitcpio-numlock osu-lazer-bin visual-studio-code-bin
+yay -c
 # yay -Sc --clean epson-inkjet-printer-escpr minecraft-launcher \
 #     mkinitcpio-numlock osu-lazer-bin visual-studio-code-bin
 
