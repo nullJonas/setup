@@ -95,6 +95,7 @@ cp -r config/flameshot /home/$USERNAME/.config/
 cp -r config/yay /home/$USERNAME/.config/
 cp config/.bashrc /home/$USERNAME/
 cp config/.xinitrc /home/$USERNAME/
+cp config/30-touchpad.conf /etc/X11/xorg.conf.d/
 
 # Instala pacotes da AUR que eu uso
 echo -e "\033[1;36m Instala pacotes da AUR que eu uso \033[m"
@@ -131,4 +132,3 @@ systemctl enable fstrim.timer
 # TODO:
 # --configurar temas
 # --ligar numlock no boot
-# --não travar touchpad enquanto digita
