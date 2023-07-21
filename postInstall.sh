@@ -13,7 +13,7 @@ sed -i '/\[multilib\]/,+1 s/^#//' /etc/pacman.conf
 echo -e "\033[1;36m Atualiza sistema \033[m"
 pacman -Syu --noconfirm
 
-# Cria um usuário normal com permissão de usar sudo
+# Cria um usuário normal com permissão para usar sudo sem senha
 echo -e "\033[1;36m Cria um usuário normal com permissão de usar sudo \033[m"
 useradd -m -G wheel,video $USERNAME
 sed -i "/root ALL=(ALL:ALL) ALL/a\
@@ -34,12 +34,12 @@ pacman -S --noconfirm xorg-server $VIDEO_DRIVER mesa i3-wm i3lock i3status\
     xorg-xkill xorg-xrandr nitrogen alacritty
 
 # Fontes
-# pacman -S --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji
+pacman -S --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji
 
 # Programas que eu uso
-# pacman -S --noconfirm ark btop cmus discord firefox flameshot imv\
-#     kdeconnect keepassxc krita mpv obsidian simple-scan steam thunar\
-#     torbrowser-launcher yt-dlp
+pacman -S --noconfirm ark btop cmus discord firefox flameshot imv\
+    kdeconnect keepassxc krita mpv obsidian simple-scan steam thunar\
+    torbrowser-launcher yt-dlp
 
 # Som
 pacman -S --noconfirm pipewire-audio pipewire-pulse pipewire-alsa pavucontrol\
@@ -51,8 +51,7 @@ pacman -S --noconfirm tlp tlp-rdw
 pacman -S --noconfirm udiskie udisks2
 
 # Programação
-pacman -S --noconfirm git
-# pacman -S --noconfirm gdb git python-pip julia nodejs npm
+pacman -S --noconfirm gdb git python-pip julia nodejs npm
 
 # Pacotes aleatórios que são úteis
 pacman -S --noconfirm bash-completion ffmpegthumbnailer gnome-keyring numlockx\
@@ -60,8 +59,8 @@ pacman -S --noconfirm bash-completion ffmpegthumbnailer gnome-keyring numlockx\
     smartmontools thunar-archive-plugin tumbler unzip wget xdg-utils zip
 
 # Suporte para jogos com o wine
-# pacman -S --noconfirm lib32-mesa lib32-vulkan-"$GPU_TYPE" vulkan-"$GPU_TYPE" wine\
-    # winetricks
+pacman -S --noconfirm lib32-mesa lib32-vulkan-"$GPU_TYPE" vulkan-"$GPU_TYPE" wine\
+    winetricks
 
 # Suporte para MTP
 pacman -S --noconfirm mtpfs gvfs-mtp
@@ -102,8 +101,11 @@ echo -e "\033[1;36m Instala pacotes da AUR que eu uso \033[m"
 su -c "LANG=C yay --noprovides --answerdiff None --answerclean None --mflags \
     "--noconfirm" -S epson-inkjet-printer-escpr minecraft-launcher \
     mkinitcpio-numlock osu-lazer-bin visual-studio-code-bin" $USERNAME
-# yay -Sc --clean epson-inkjet-printer-escpr minecraft-launcher \
-#     mkinitcpio-numlock osu-lazer-bin visual-studio-code-bin
+
+# Faz o usuário precisar de senha para usar sudo
+sed -i "/$USERNAME/d" /etc/sudoers
+sed -i "/root ALL=(ALL:ALL) ALL/a\
+$USERNAME ALL=(ALL:ALL) ALL" /etc/sudoers
 
 # Baixa e seta o wallpaper
 echo -e "\033[1;36m Baixa e seta o wallpaper \033[m"
@@ -123,11 +125,10 @@ xdg-mime default thunar.desktop inode/directory
 su -c "xdg-mime default thunar.desktop inode/directory" $USERNAME
 
 # Liga o timer para fazer a nivelação de desgaste no SSD semanalemente
-echo -e "\033[1;36m Liga o timer para fazer a nivelação de desgaste no SSD semanalemente \033[m"
+echo -e "\033[1;36m Liga o timer para fazer a nivelação de desgaste no SSD semanalmente \033[m"
 systemctl enable fstrim.timer
 
 # TODO:
 # --configurar temas
 # --ligar numlock no boot
 # --não travar touchpad enquanto digita
-# --
