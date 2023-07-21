@@ -113,7 +113,8 @@ echo -e "\033[1;36m Baixa e seta o wallpaper \033[m"
 mkdir -p /home/$USERNAME/images/wallpapers
 wget https://wallpapercave.com/wp/wp4162242.png\
     -O /home/$USERNAME/images/wallpapers/celeste.png
-su -c "nitrogen --set-zoom-fill ~/images/wallpapers/celeste.png" $USERNAME
+# Não da pra setar o wallpaper antes de entrar no xorg
+# su -c "nitrogen --set-zoom-fill ~/images/wallpapers/celeste.png" $USERNAME
 
 # Ajeita as permissões da home do usuário
 echo -e "\033[1;36m Ajeita as permissões da home do usuário \033[m"
