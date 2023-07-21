@@ -129,6 +129,10 @@ su -c "xdg-mime default thunar.desktop inode/directory" $USERNAME
 echo -e "\033[1;36m Liga o timer para fazer a nivelação de desgaste no SSD semanalmente \033[m"
 systemctl enable fstrim.timer
 
+# Limpeza
+cd ..
+rm -rf setup
+
 # TODO:
 # --configurar temas
 # --ligar numlock no boot
